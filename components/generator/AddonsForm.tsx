@@ -1,6 +1,5 @@
 "use client";
-import { addonsForm } from "@/lib/constants/addons";
-import React, { useState } from "react";
+import React from "react";
 
 type Addon = {
   name: string;
@@ -8,9 +7,12 @@ type Addon = {
   checked: boolean;
 };
 
-const AddonsForm: React.FC = () => {
-  const [addons, setAddons] = useState<Addon[]>(addonsForm);
+type AddonsFormProps = {
+  addons: Addon[];
+  setAddons: React.Dispatch<React.SetStateAction<Addon[]>>;
+};
 
+const AddonsForm: React.FC<AddonsFormProps> = ({ addons, setAddons }) => {
   const handleCheckboxChange = (addonName: string) => {
     const updatedAddons = addons.map((addon) =>
       addon.name === addonName ? { ...addon, checked: !addon.checked } : addon

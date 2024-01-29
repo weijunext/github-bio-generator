@@ -9,7 +9,19 @@ interface SupportOption {
   icon: string;
 }
 
-const SupportForm: React.FC = () => {
+interface SupportFormProps {
+  supportData: { [key: string]: string };
+  setSupportData: (data: { [key: string]: string }) => void;
+}
+
+const SupportForm: React.FC<SupportFormProps> = ({
+  supportData,
+  setSupportData,
+}) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSupportData({ ...supportData, [e.target.id]: e.target.value });
+  };
+
   return (
     <div className="flex flex-col gap-4">
       {Object.values(supportForm as Record<string, SupportOption>).map(
@@ -24,6 +36,8 @@ const SupportForm: React.FC = () => {
             <input
               placeholder={support.placeholder}
               id={support.id}
+              value={supportData[support.id] || ""}
+              onChange={handleChange}
               className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 dark:text-white dark:border-slate-800"
             />
           </div>

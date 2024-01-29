@@ -1,6 +1,6 @@
 "use client";
 import { socialForm } from "@/lib/constants/social";
-import React, { useState } from "react";
+import React from "react";
 
 type SocialField = {
   name: string;
@@ -8,16 +8,17 @@ type SocialField = {
   placeholder: string;
 };
 
-const SocialForm: React.FC = () => {
-  const [socialInputs, setSocialInputs] = useState<{ [key: string]: string }>(
-    socialForm.reduce((acc, social) => {
-      acc[social.name] = "";
-      return acc;
-    }, {} as { [key: string]: string })
-  );
+type SocialFormProps = {
+  socialData: { [key: string]: string };
+  setSocialData: (data: { [key: string]: string }) => void;
+};
 
+const SocialForm: React.FC<SocialFormProps> = ({
+  socialData,
+  setSocialData,
+}) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSocialInputs({ ...socialInputs, [e.target.name]: e.target.value });
+    setSocialData({ ...socialData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -36,7 +37,7 @@ const SocialForm: React.FC = () => {
             type="text"
             name={social.name}
             id={social.name}
-            value={socialInputs[social.name]}
+            value={socialData[social.name]}
             onChange={handleInputChange}
             className="block w-full flex-1 px-3 rounded-none rounded-r-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder={social.placeholder}
