@@ -28,11 +28,14 @@ export const categorizedSkills: any = {
   },
 
   frontend_dev: {
-    title: 'Frontend Development',
+    title: 'Frontend',
     skills: [
-      'vuejs',
       'react',
+      'vuejs',
       'svelte',
+      'nextjs',
+      'nuxtjs',
+      "remixjs",
       'angularjs',
       'angular',
       'backbonejs',
@@ -57,33 +60,27 @@ export const categorizedSkills: any = {
   },
 
   backend_dev: {
-    title: 'Backend Development',
+    title: 'Backend',
     skills: [
       'nodejs',
-      'spring',
       'express',
+      'nestjs',
+      "koa",
+      'egg',
+      'midway',
       'graphql',
+      'spring',
       'kafka',
       'solr',
       'rabbitMQ',
       'hadoop',
       'nginx',
       'openresty',
-      'nestjs',
     ],
   },
 
-  full_stack_dev: {
-    title: 'Full Stack Development',
-    skills: [
-      'nextjs',
-      'nuxtjs',
-      "remixjs"
-    ]
-  },
-
   mobile_dev: {
-    title: 'Mobile App Development',
+    title: 'Mobile App',
     skills: [
       'android',
       'flutter',
@@ -219,6 +216,9 @@ export const icons: any = {
   mongodb: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg',
   mysql: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg',
   nestjs: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-plain.svg',
+  koa: 'https://icon.horse/icon/koajs.com',
+  egg: 'https://icon.horse/icon/www.eggjs.org',
+  midway: 'https://icon.horse/icon/midwayjs.org',
   nginx: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg',
   nodejs: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg',
   openresty: 'https://openresty.org/images/logo.png',
@@ -374,6 +374,9 @@ export const skillWebsites: any = {
   mongodb: 'https://www.mongodb.com/',
   mysql: 'https://www.mysql.com/',
   nestjs: 'https://nestjs.com/',
+  koa: 'https://koajs.com/',
+  egg: 'https://www.eggjs.org/',
+  midway: 'https://midwayjs.org/',
   nginx: 'https://www.nginx.com',
   nodejs: 'https://nodejs.org',
   openresty: 'https://openresty.org/',
