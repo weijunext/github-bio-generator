@@ -46,8 +46,10 @@ export default async function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <div className="flex max-full mx-auto flex-col justify-center py-0 min-h-screen">
-            <main className="flex-1 mt-20 flex justify-center">{children}</main>
+          <div>
+            <main className="flex min-h-screen flex-col items-center justify-between px-24 py-6">
+              {children}
+            </main>
             <Footer />
           </div>
           <Analytics />
