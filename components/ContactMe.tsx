@@ -10,6 +10,7 @@ const ContactMe = () => {
       <Link
         href="mailto:weijunext@gmail.com"
         target="_blank"
+        rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <MdEmail className="text-lg" />
@@ -17,6 +18,7 @@ const ContactMe = () => {
       <Link
         href="https://github.com/weijunext"
         target="_blank"
+        rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <BsGithub className="text-lg" />
@@ -24,6 +26,7 @@ const ContactMe = () => {
       <Link
         href="https://twitter.com/weijunext"
         target="_blank"
+        rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <BsTwitterX className="text-lg" />
@@ -31,6 +34,7 @@ const ContactMe = () => {
       <Link
         href="https://juejin.cn/user/26044008768029"
         target="_blank"
+        rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <SiJuejin className="text-lg" />
@@ -45,6 +49,7 @@ const ContactMe = () => {
       <Link
         href="https://www.buymeacoffee.com/weijunextz"
         target="_blank"
+        rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <SiBuymeacoffee className="text-lg" />

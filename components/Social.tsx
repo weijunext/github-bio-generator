@@ -9,6 +9,7 @@ const Social = () => {
       <Link
         href="https://github.com/weijunext/github-bio"
         target="_blank"
+        rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <BsGithub className="text-lg" />
@@ -16,6 +17,7 @@ const Social = () => {
       <Link
         href="https://twitter.com/weijunext"
         target="_blank"
+        rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <BsTwitterX className="text-lg" />
@@ -23,6 +25,7 @@ const Social = () => {
       <Link
         href="https://www.buymeacoffee.com/weijunextz"
         target="_blank"
+        rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <SiBuymeacoffee className="text-lg" />
