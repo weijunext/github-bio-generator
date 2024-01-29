@@ -38,7 +38,7 @@ const SocialForm: React.FC = () => {
             id={social.name}
             value={socialInputs[social.name]}
             onChange={handleInputChange}
-            className="generator-social-input block w-full flex-1 px-3 rounded-none rounded-r-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="block w-full flex-1 px-3 rounded-none rounded-r-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder={social.placeholder}
           />
         </div>

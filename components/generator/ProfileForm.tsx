@@ -1,6 +1,6 @@
 "use client";
 import { profileForm as profileFormConfig } from "@/lib/constants/profile";
-import React, { useState } from "react";
+import React from "react";
 
 type ProfileFormField = {
   name: string;
@@ -11,16 +11,17 @@ type ProfileFormField = {
   placeholder: string;
 };
 
-const ProfileForm: React.FC = () => {
-  const [formState, setFormState] = useState<{ [key: string]: string }>(
-    profileFormConfig.reduce((acc, field) => {
-      acc[field.name] = field.value;
-      return acc;
-    }, {} as { [key: string]: string })
-  );
+type ProfileFormProps = {
+  profileData: { [key: string]: string };
+  setProfileData: (data: { [key: string]: string }) => void;
+};
 
+const ProfileForm: React.FC<ProfileFormProps> = ({
+  profileData,
+  setProfileData,
+}) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormState({ ...formState, [e.target.name]: e.target.value });
+    setProfileData({ ...profileData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -37,11 +38,11 @@ const ProfileForm: React.FC = () => {
             type={field.type}
             name={field.name}
             id={field.name}
-            value={formState[field.name]}
+            value={profileData[field.name]}
             required={field.required}
             placeholder={field.placeholder}
             onChange={handleInputChange}
-            className="generator-profile-input mt-1 p-2.5 w-full text-sm text-gray-900 bg-white-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="mt-1 p-2.5 w-full text-sm text-gray-900 bg-white-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
       ))}

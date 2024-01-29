@@ -27,11 +27,7 @@ const SkillsForm: React.FC = () => {
               )
               .map((skill: string) => (
                 <div key={skill} className={skill}>
-                  <input
-                    type="checkbox"
-                    id={skill}
-                    className="generator-skills-checkbox peer hidden"
-                  />
+                  <input type="checkbox" id={skill} className="peer hidden" />
                   <label
                     htmlFor={skill}
                     className="cursor-pointer text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2 transition-colors duration-200 ease-in-out peer-checked:bg-amber-200 peer-checked:text-amber-900 peer-checked:border-amber-200"
