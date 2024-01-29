@@ -6,8 +6,6 @@ import SocialForm from "@/components/generator/SocialForm";
 import SupportForm from "@/components/generator/Support";
 import { addonsForm as addonsFormConfig } from "@/lib/constants/addons";
 import { generators } from "@/lib/constants/generators";
-import { profileForm as profileFormConfig } from "@/lib/constants/profile";
-import { socialForm as socialFormConfig } from "@/lib/constants/social";
 import React, { useState } from "react";
 
 type Addon = {
@@ -17,43 +15,45 @@ type Addon = {
 };
 
 const Generator: React.FC = () => {
-  const [profileData, setProfileData] = useState<{ [key: string]: string }>(
-    profileFormConfig.reduce((acc, field) => {
-      acc[field.name] = field.value;
-      return acc;
-    }, {} as { [key: string]: string })
-  );
-  const [skillsData, setSkillsData] = useState<string[]>([]);
-  const [socialData, setSocialData] = useState<{ [key: string]: string }>(
-    socialFormConfig.reduce((acc, social) => {
-      acc[social.name] = "";
-      return acc;
-    }, {} as { [key: string]: string })
-  );
   const [addons, setAddons] = useState<Addon[]>(addonsFormConfig);
-  const [supportData, setSupportData] = useState({});
+
+  const [profileMarkdown, setProfileMarkdown] = useState("");
+  const [socialMarkdown, setSocialMarkdown] = useState("");
+  const [skillsMarkdown, setSkillsMarkdown] = useState("");
+  const [supportMarkdown, setSupportMarkdown] = useState("");
 
   const generateBio = () => {
     // 这里是组合所有表单数据生成 Markdown 格式的逻辑
-    const markdownBio = `
-    # Profile
-    ${JSON.stringify(profileData)}
+    let markdownBio = "";
 
-    # Skills
-    ${JSON.stringify(skillsData)}
+    if (profileMarkdown) {
+      markdownBio += profileMarkdown;
+    }
 
-    # Social
-    ${Object.entries(socialData)
-      .map(([key, value]) => `${key}: ${value}`)
-      .join("\n")}\n
-
-      # Addons
-      ${JSON.stringify(addons)}
-
-      # Support
-      ${JSON.stringify(supportData)}
-  
+    if (skillsMarkdown) {
+      markdownBio += `
+        <h2>🛠 Skills</h2>
+        <p>
+          ${skillsMarkdown}
+        </p>
       `;
+    }
+
+    if (socialMarkdown) {
+      markdownBio += `
+<h2>📪 Contact me</h2>
+<p>
+  ${socialMarkdown}
+</p>
+      `;
+    }
+
+    if (supportMarkdown) {
+      markdownBio += `
+        <h2>☕️ Support Me</h2>
+        <p>${supportMarkdown}</p>
+      `;
+    }
 
     console.log(markdownBio);
     // 这里可以将 markdownBio 显示在 UI 上或进行其他处理
@@ -80,31 +80,19 @@ const Generator: React.FC = () => {
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="space-y-4 bg-white px-4 py-5 sm:p-6 dark:bg-slate-500">
                   {generator.type === "profile" && (
-                    <ProfileForm
-                      profileData={profileData}
-                      setProfileData={setProfileData}
-                    />
+                    <ProfileForm setMarkdown={setProfileMarkdown} />
                   )}
                   {generator.type === "skills" && (
-                    <SkillsForm
-                      skillsData={skillsData}
-                      setSkillsData={setSkillsData}
-                    />
+                    <SkillsForm setMarkdown={setSkillsMarkdown} />
                   )}
                   {generator.type === "social" && (
-                    <SocialForm
-                      socialData={socialData}
-                      setSocialData={setSocialData}
-                    />
+                    <SocialForm setMarkdown={setSocialMarkdown} />
                   )}
                   {generator.type === "addons" && (
                     <AddonsForm addons={addons} setAddons={setAddons} />
                   )}
                   {generator.type === "supports" && (
-                    <SupportForm
-                      supportData={supportData}
-                      setSupportData={setSupportData}
-                    />
+                    <SupportForm setMarkdown={setSupportMarkdown} />
                   )}
                 </div>
               </div>

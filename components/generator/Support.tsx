@@ -1,6 +1,6 @@
 "use client";
-import { supportForm } from "@/lib/constants/support";
-import React from "react";
+import { supportForm as supportFormConfig } from "@/lib/constants/support";
+import React, { useEffect, useState } from "react";
 
 interface SupportOption {
   id: string;
@@ -8,23 +8,42 @@ interface SupportOption {
   placeholder: string;
   icon: string;
 }
-
-interface SupportFormProps {
-  supportData: { [key: string]: string };
-  setSupportData: (data: { [key: string]: string }) => void;
+interface SupportData {
+  [key: string]: string;
 }
 
-const SupportForm: React.FC<SupportFormProps> = ({
-  supportData,
-  setSupportData,
+const SupportForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
+  setMarkdown,
 }) => {
+  const [supportData, setSupportData] = useState<SupportData>({});
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSupportData({ ...supportData, [e.target.id]: e.target.value });
   };
 
+  useEffect(() => {
+    const markdown = Object.keys(supportData)
+      .map((key) => {
+        const support = supportFormConfig[key];
+        if (supportData[key]) {
+          return `
+          <p>
+            <a href="${supportData[key]}">
+              <img src="${support.icon}" width="160" alt="${key}" />
+            </a>
+          </p>
+        `;
+        }
+        return "";
+      })
+      .join("\n");
+
+    setMarkdown(markdown);
+  }, [supportData, setMarkdown]);
+
   return (
     <div className="flex flex-col gap-4">
-      {Object.values(supportForm as Record<string, SupportOption>).map(
+      {Object.values(supportFormConfig as Record<string, SupportOption>).map(
         (support: SupportOption) => (
           <div key={support.id} className="flex items-center gap-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}

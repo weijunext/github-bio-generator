@@ -1,17 +1,16 @@
 "use client";
-import { categorizedSkills, icons } from "@/lib/constants/skills";
-import React, { useState } from "react";
+import {
+  categorizedSkills,
+  icons,
+  skillWebsites,
+} from "@/lib/constants/skills";
+import React, { useEffect, useState } from "react";
 
-type SkillsFormProps = {
-  skillsData: string[];
-  setSkillsData: (skills: string[]) => void;
-};
-
-const SkillsForm: React.FC<SkillsFormProps> = ({
-  skillsData,
-  setSkillsData,
+const SkillsForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
+  setMarkdown,
 }) => {
-  const [search, setSearch] = useState<string>("");
+  const [skillsData, setSkillsData] = useState<string[]>([]);
+  // const [search, setSearch] = useState<string>(""); // 可做搜索
 
   const handleSkillChange = (skill: string, checked: boolean) => {
     if (checked) {
@@ -22,11 +21,27 @@ const SkillsForm: React.FC<SkillsFormProps> = ({
   };
 
   const filteredCategories = Object.keys(categorizedSkills).filter((key) => {
-    const filtered = categorizedSkills[key].skills.filter((skill: string) =>
-      skill.toLowerCase().includes(search.toLowerCase())
-    );
-    return filtered.length !== 0;
+    // const filtered = categorizedSkills[key].skills.filter(
+    //   (skill: string) =>
+    //     skill.toLowerCase().includes(search.toLowerCase())
+    // );
+    // return filtered.length !== 0;
+    return categorizedSkills[key].skills;
   });
+
+  useEffect(() => {
+    const markdown = skillsData
+      .map((key) => {
+        return `
+          <a target="_blank" href="${skillWebsites[key]}" style="display: inline-block;">
+            <img src="${icons[key]}" alt="${key}" width="42" height="42" />
+          </a>
+      `;
+      })
+      .join("\n");
+
+    setMarkdown(markdown);
+  }, [skillsData, setMarkdown]);
 
   return (
     <>
@@ -36,11 +51,12 @@ const SkillsForm: React.FC<SkillsFormProps> = ({
             {categorizedSkills[key].title}
           </div>
           <div className="flex flex-row flex-wrap text-gray-700">
-            {categorizedSkills[key].skills
-              .filter((skill: string) =>
-                skill.toLowerCase().includes(search.toLowerCase())
-              )
-              .map((skill: string) => (
+            {
+              // categorizedSkills[key].skills
+              // .filter((skill: string) =>
+              //   skill.toLowerCase().includes(search.toLowerCase())
+              // )
+              categorizedSkills[key].skills.map((skill: string) => (
                 <div key={skill} className={skill}>
                   <input
                     type="checkbox"
@@ -62,7 +78,8 @@ const SkillsForm: React.FC<SkillsFormProps> = ({
                     {skill}
                   </label>
                 </div>
-              ))}
+              ))
+            }
           </div>
         </div>
       ))}

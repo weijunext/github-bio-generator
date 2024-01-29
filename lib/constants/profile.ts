@@ -2,7 +2,7 @@
 export const profileForm = [
   {
     name: "github",
-    label: "Github",
+    label: "Your Github",
     type: "text",
     value: "",
     required: true,

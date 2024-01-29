@@ -336,7 +336,7 @@ export const icons: any = {
   matlab: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png',
 }
 
-export const skillWebsites = {
+export const skillWebsites: any = {
   arduino: 'https://www.arduino.cc/',
   solidworks: 'https://www.solidworks.com/',
   vuejs: 'https://vuejs.org/',
