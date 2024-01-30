@@ -16,15 +16,18 @@ type SocialInfo = {
   shields: string;
   placeholder: string;
 };
+interface SocialData {
+  [key: string]: string;
+}
 
 const SocialForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
   setMarkdown,
 }) => {
-  const [socialInputs, setSocialInputs] = useState<{ [key: string]: string }>(
+  const [socialInputs, setSocialInputs] = useState<SocialData>(
     socialFormConfig.reduce((acc, social) => {
       acc[social.name] = "";
       return acc;
-    }, {} as { [key: string]: string })
+    }, {} as SocialData)
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,18 +37,18 @@ const SocialForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
   useEffect(() => {
     const markdown = Object.keys(socialInputs)
       .map((key) => {
-        if (socialInputs[key] && socialFormConfig) {
+        if (socialInputs[key]) {
           const info = socialFormConfig.find(
             (i) => i.name === key
           ) as SocialInfo;
-          return `
-            <a target="_blank" href="${socialInputs[key]}" style="display: inline-block;">
+          return `<a target="_blank" href="${socialInputs[key]}" style="display: inline-block;">
               <img src="${info.shields}" alt="${info.name}" />
             </a>
             `;
         }
         return "";
       })
+      .filter((i) => i)
       .join("\n");
 
     setMarkdown(markdown);
