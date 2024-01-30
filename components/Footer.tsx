@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="mb-3 flex space-x-4">
           <ContactMe />
         </div>
-        <div className="mb-2 flex space-x-2">
+        <div className="mb-2 flex space-x-2 flex-wrap justify-center">
           <Link href="https://weijunext.com/" target="_blank">
             J实验室
           </Link>
