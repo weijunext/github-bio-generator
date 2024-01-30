@@ -45,14 +45,14 @@ export const socialForm = [
     name: 'codepen',
     link: 'https://www.codepen.io/',
     icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/codepen.svg',
-    shields: 'https://img.shields.io/badge/codepen?style=for-the-badge&logo=codepen&logoColor=white&color=black',
+    shields: 'https://img.shields.io/badge/Codepen-000000?style=for-the-badge&logo=codepen&logoColor=white',
     placeholder: 'codepen profile url',
   },
   {
     name: 'codesandbox',
     link: 'https://codesandbox.com/u/',
     icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/codesandbox.svg',
-    shields: 'https://img.shields.io/badge/codesandbox?style=for-the-badge&logo=codesandbox&logoColor=white&color=black',
+    shields: 'https://img.shields.io/badge/Codesandbox-000000?style=for-the-badge&logo=CodeSandbox&logoColor=white',
     placeholder: 'codesandbox profile url',
   },
   {
