@@ -15,7 +15,7 @@ export default function FAQ() {
       <p className="text-center text-base font-semibold leading-7 text-amber-500">
         Frequently asked questions
       </p>{" "}
-      <h2 className="text-center font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+      <h2 className="text-center font-display text-3xl font-bold tracking-tight text-gray-900 md:text-4xl dark:text-gray-200">
         Everything you need to know
       </h2>{" "}
       <Accordion type="single" collapsible>
