@@ -1,3 +1,4 @@
+import FAQ from "@/components/faq/FAQ";
 import Generator from "@/components/generator/Generator";
 import Introduction from "@/components/introduction/Introduction";
 
@@ -27,6 +28,7 @@ export default function Home() {
       </div>
       <Generator />
       <Introduction />
+      <FAQ />
     </>
   );
 }
