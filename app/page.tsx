@@ -1,4 +1,5 @@
 import Generator from "@/components/generator/Generator";
+import Introduction from "@/components/introduction/Introduction";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         </p>
       </div>
       <Generator />
+      <Introduction />
     </>
   );
 }
