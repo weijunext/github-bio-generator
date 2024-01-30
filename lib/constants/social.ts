@@ -82,5 +82,33 @@ export const socialForm = [
     icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/behance.svg',
     shields: 'https://img.shields.io/badge/behance-logo?style=for-the-badge&logo=behance&logoColor=white&color=%230057ff',
     placeholder: 'behance profile url',
+  },
+  {
+    name: '掘金',
+    link: 'https://www.juejin.cn/',
+    icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Im0xMiAxNC4zMTZsNy40NTQtNS44OGwtMi4wMjItMS42MjVMMTIgMTEuMWwtLjAwNC4wMDNsLTUuNDMyLTQuMjg4bC0yLjAyIDEuNjI0bDcuNDUyIDUuODhabTAtNy4yNDdsMi44OS0yLjI5OEwxMiAyLjQ1M2wtLjAwNC0uMDA1bC0yLjg4NCAyLjMxOGwyLjg4NCAyLjNabTAgMTEuMjY2bC0uMDA1LjAwMmwtOS45NzUtNy44N0wwIDEyLjA4OGwuMTk0LjE1NmwxMS44MDMgOS4zMDhsNy40NjMtNS44ODVMMjQgMTIuMDg1bC0yLjAyMy0xLjYyNFoiLz48L3N2Zz4=',
+    shields: 'https://img.shields.io/static/v1?style=for-the-badge&message=Juejin&color=007FFF&logo=Juejin&logoColor=FFFFFF&label=',
+    placeholder: 'JueJin profile url',
+  },
+  {
+    name: '知乎',
+    link: 'https://www.zhihu.com/',
+    icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/zhihu.svg',
+    shields: 'https://img.shields.io/badge/zhihu-%230084FF.svg?&style=for-the-badge&logo=zhihu&logoColor=white',
+    placeholder: 'ZhiHu profile url',
+  },
+  {
+    name: 'Wei Bo',
+    link: 'https://www.weibo.com/',
+    icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/sinaweibo.svg',
+    shields: 'https://img.shields.io/badge/sina%20weibo-%23E6162D.svg?&style=for-the-badge&logo=sina%20weibo&logoColor=white',
+    placeholder: 'WeiBo profile url',
+  },
+  {
+    name: 'weChat',
+    link: 'https://githubbio.com/weChat/',
+    icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/wechat.svg',
+    shields: 'https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white',
+    placeholder: 'weChat name/id',
   }
 ]
