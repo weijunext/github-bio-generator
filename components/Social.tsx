@@ -23,7 +23,7 @@ const Social = () => {
         <BsTwitterX className="text-lg" />
       </Link>
       <Link
-        href="https://www.buymeacoffee.com/weijunextz"
+        href="https://www.buymeacoffee.com/weijunext"
         target="_blank"
         rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
