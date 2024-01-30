@@ -30,6 +30,8 @@ const Generator: React.FC = () => {
   const [skillsMarkdown, setSkillsMarkdown] = useState("");
   const [supportMarkdown, setSupportMarkdown] = useState("");
 
+  const [githubBio, setGithubBio] = useState("");
+
   const generateBio = () => {
     // 这里是组合所有表单数据生成 Markdown 格式的逻辑
     let markdownBio = "";
@@ -66,6 +68,8 @@ const Generator: React.FC = () => {
     const cleanedMarkdownBio = removeLeadingSpaces(markdownBio);
     console.log(cleanedMarkdownBio);
     // 这里可以将 markdownBio 显示在 UI 上或进行其他处理
+
+    setGithubBio(cleanedMarkdownBio);
   };
 
   return (
@@ -124,7 +128,7 @@ const Generator: React.FC = () => {
       >
         Generate Bio
       </button> */}
-      <PreviewSheet generateBio={generateBio} />
+      <PreviewSheet generateBio={generateBio} githubBio={githubBio} />
     </div>
   );
 };
