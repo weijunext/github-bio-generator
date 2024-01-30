@@ -27,12 +27,12 @@ const SupportForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
         const support = supportFormConfig[key];
         if (supportData[key]) {
           return `
-          <p>
-            <a href="${supportData[key]}">
-              <img src="${support.icon}" width="160" alt="${key}" />
-            </a>
-          </p>
-        `;
+            <p>
+              <a href="${supportData[key]}">
+                <img src="${support.icon}" width="160" alt="${key}" />
+              </a>
+            </p>
+            `;
         }
         return "";
       })

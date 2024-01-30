@@ -36,7 +36,7 @@ const SkillsForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
           <a target="_blank" href="${skillWebsites[key]}" style="display: inline-block;">
             <img src="${icons[key]}" alt="${key}" width="42" height="42" />
           </a>
-      `;
+          `;
       })
       .join("\n");
 

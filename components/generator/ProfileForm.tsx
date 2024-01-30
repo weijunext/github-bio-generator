@@ -12,11 +12,6 @@ type ProfileFormField = {
   placeholder: string;
 };
 
-type ProfileFormProps = {
-  profileData: { [key: string]: string };
-  setProfileData: (data: { [key: string]: string }) => void;
-};
-
 const ProfileForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
   setMarkdown,
 }) => {
@@ -36,7 +31,7 @@ const ProfileForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
       <h1>${profileData.title}</h1>
 
       <p>${profileData.subTitle}</p>
-    `;
+      `;
 
     setMarkdown(markdown);
   }, [profileData, setMarkdown]);
