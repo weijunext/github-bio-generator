@@ -1,4 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import {
   categorizedSkills,
   icons,
@@ -6,11 +9,20 @@ import {
 } from "@/lib/constants/skills";
 import React, { useEffect, useState } from "react";
 
-const SkillsForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
+interface IProps {
+  githubUsername: string;
+  setMarkdown: (markdown: string) => void;
+  setLanguageStatsMarkdown: (value: string) => void;
+}
+
+const SkillsForm: React.FC<IProps> = ({
+  githubUsername,
   setMarkdown,
+  setLanguageStatsMarkdown,
 }) => {
-  const [skillsData, setSkillsData] = useState<string[]>([]);
   // const [search, setSearch] = useState<string>(""); // 可做搜索
+  const [skillsData, setSkillsData] = useState<string[]>([]);
+  const [hasLanguageStats, setHasLanguageStats] = useState<boolean>(true);
 
   const handleSkillChange = (skill: string, checked: boolean) => {
     if (checked) {
@@ -29,11 +41,15 @@ const SkillsForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
     return categorizedSkills[key].skills;
   });
 
+  const onCheckedHasLanguageStats = (checked: boolean) => {
+    setHasLanguageStats(checked);
+  };
+
   useEffect(() => {
     const markdown = skillsData
       .map((key) => {
         return `
-          <a target="_blank" href="${skillWebsites[key]}" style="display: inline-block;">
+          <a target="_blank" href="${skillWebsites[key]}" target="_blank" style="display: inline-block;">
             <img src="${icons[key]}" alt="${key}" width="42" height="42" />
           </a>
           `;
@@ -42,6 +58,17 @@ const SkillsForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
 
     setMarkdown(markdown);
   }, [skillsData, setMarkdown]);
+
+  useEffect(() => {
+    if (githubUsername && hasLanguageStats) {
+      const markdown = `
+        <a href="https://github.com/${githubUsername}" target="_blank">
+          <img height="200" align="center" src="https://github-readme-stats-one-mu-82.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&langs_count=8&bg_color=ffffff#gh-light-mode-only" />
+        </a>
+        `;
+      setLanguageStatsMarkdown(markdown);
+    }
+  }, [hasLanguageStats, githubUsername, setLanguageStatsMarkdown]);
 
   return (
     <>
@@ -83,6 +110,50 @@ const SkillsForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
           </div>
         </div>
       ))}
+
+      <div className="col-span-6 sm:col-span-3">
+        <Label
+          htmlFor="Github URL"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Show Stats?
+        </Label>
+        <div className="flex items-center space-x-2 my-2">
+          <Checkbox
+            id="stats"
+            checked={hasLanguageStats}
+            onCheckedChange={onCheckedHasLanguageStats}
+          />
+          <label
+            htmlFor="stats"
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Show the stats?
+          </label>
+        </div>
+        {hasLanguageStats ? (
+          <div>
+            <a
+              href={`https://github.com/${process.env.NEXT_PUBLIC_EXAMPLE_GITHUB_USERNAME}`}
+              target="_blank"
+            >
+              <img
+                height="200"
+                alt={`https://github.com/${
+                  githubUsername ||
+                  process.env.NEXT_PUBLIC_EXAMPLE_GITHUB_USERNAME
+                }`}
+                src={`https://github-readme-stats-one-mu-82.vercel.app/api/top-langs/?username=${
+                  githubUsername ||
+                  process.env.NEXT_PUBLIC_EXAMPLE_GITHUB_USERNAME
+                }&layout=compact&langs_count=8&bg_color=ffffff#gh-light-mode-only`}
+              />
+            </a>
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
     </>
   );
 };

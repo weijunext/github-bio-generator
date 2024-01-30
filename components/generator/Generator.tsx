@@ -1,4 +1,5 @@
 "use client";
+import AccountForm from "@/components/generator/AccountForm";
 import AddonsForm from "@/components/generator/AddonsForm";
 import { PreviewSheet } from "@/components/generator/PreviewSheet";
 import ProfileForm from "@/components/generator/ProfileForm";
@@ -25,16 +26,28 @@ function removeLeadingSpaces(str: string) {
 const Generator: React.FC = () => {
   const [addons, setAddons] = useState<Addon[]>(addonsFormConfig);
 
+  const [githubUsername, setGithubUsername] = useState("");
+
+  const [statsMarkdown, setStatsMarkdown] = useState("");
   const [profileMarkdown, setProfileMarkdown] = useState("");
   const [socialMarkdown, setSocialMarkdown] = useState("");
   const [skillsMarkdown, setSkillsMarkdown] = useState("");
+  const [languageStatsMarkdown, setLanguageStatsMarkdown] = useState("");
   const [supportMarkdown, setSupportMarkdown] = useState("");
 
   const [githubBio, setGithubBio] = useState("");
 
+  const getGithubUsername = (val: string) => {
+    setGithubUsername(val);
+  };
+
   const generateBio = () => {
     // 这里是组合所有表单数据生成 Markdown 格式的逻辑
     let markdownBio = "";
+
+    if (statsMarkdown) {
+      markdownBio += statsMarkdown;
+    }
 
     if (profileMarkdown) {
       markdownBio += profileMarkdown;
@@ -47,6 +60,9 @@ const Generator: React.FC = () => {
             ${skillsMarkdown}
           </p>
         `;
+    }
+    if (languageStatsMarkdown) {
+      markdownBio += languageStatsMarkdown;
     }
 
     if (socialMarkdown) {
@@ -65,10 +81,7 @@ const Generator: React.FC = () => {
         `;
     }
 
-    const cleanedMarkdownBio = removeLeadingSpaces(markdownBio);
-    console.log(cleanedMarkdownBio);
-    // 这里可以将 markdownBio 显示在 UI 上或进行其他处理
-
+    const cleanedMarkdownBio = removeLeadingSpaces(markdownBio) as string;
     setGithubBio(cleanedMarkdownBio);
   };
 
@@ -92,11 +105,21 @@ const Generator: React.FC = () => {
             <div className="mt-5 md:col-span-2 md:mt-0 relative">
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="space-y-4 bg-white px-4 py-5 sm:p-6 dark:bg-slate-500">
+                  {generator.type === "account" && (
+                    <AccountForm
+                      getGithubUsername={getGithubUsername}
+                      setStatsMarkdown={setStatsMarkdown}
+                    />
+                  )}
                   {generator.type === "profile" && (
                     <ProfileForm setMarkdown={setProfileMarkdown} />
                   )}
                   {generator.type === "skills" && (
-                    <SkillsForm setMarkdown={setSkillsMarkdown} />
+                    <SkillsForm
+                      setMarkdown={setSkillsMarkdown}
+                      setLanguageStatsMarkdown={setLanguageStatsMarkdown}
+                      githubUsername={githubUsername}
+                    />
                   )}
                   {generator.type === "social" && (
                     <SocialForm setMarkdown={setSocialMarkdown} />
@@ -120,14 +143,6 @@ const Generator: React.FC = () => {
         </React.Fragment>
       ))}
       {/* Generator button */}
-      {/* <button
-        id="generate"
-        type="button"
-        className="flex select-none mx-auto items-center gap-3 rounded-lg bg-amber-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold text-white shadow-md shadow-amber-500/20 transition-all hover:shadow-lg hover:shadow-amber-500/50 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-        onClick={generateBio}
-      >
-        Generate Bio
-      </button> */}
       <PreviewSheet generateBio={generateBio} githubBio={githubBio} />
     </div>
   );

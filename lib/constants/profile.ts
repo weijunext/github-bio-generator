@@ -1,13 +1,13 @@
 
 export const profileForm = [
-  {
-    name: "github",
-    label: "Your Github",
-    type: "text",
-    value: "",
-    required: true,
-    placeholder: "Enter Your GitHub Username or Address",
-  },
+  // {
+  //   name: "github",
+  //   label: "Your Github",
+  //   type: "text",
+  //   value: "",
+  //   required: true,
+  //   placeholder: "Enter Your GitHub Username or Address",
+  // },
   {
     name: "title",
     label: "Title",

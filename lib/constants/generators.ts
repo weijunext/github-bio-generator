@@ -2,10 +2,15 @@
 type Generator = {
   title: string;
   subTitle: string;
-  type: "profile" | "skills" | "social" | "addons" | "supports";
+  type: "account" | "profile" | "skills" | "social" | "addons" | "supports";
 };
 
 export const generators: Generator[] = [
+  {
+    title: "Account",
+    subTitle: "Starting from entering your GitHub",
+    type: "account",
+  },
   {
     title: "Profile",
     subTitle: "Some public information about you",
