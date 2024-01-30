@@ -1,20 +1,12 @@
 "use client";
 import AccountForm from "@/components/generator/AccountForm";
-import AddonsForm from "@/components/generator/AddonsForm";
 import { PreviewSheet } from "@/components/generator/PreviewSheet";
 import ProfileForm from "@/components/generator/ProfileForm";
 import SkillsForm from "@/components/generator/SkillsForm";
 import SocialForm from "@/components/generator/SocialForm";
 import SupportForm from "@/components/generator/Support";
-import { addonsForm as addonsFormConfig } from "@/lib/constants/addons";
 import { generators } from "@/lib/constants/generators";
 import React, { useState } from "react";
-
-type Addon = {
-  name: string;
-  label: string;
-  checked: boolean;
-};
 
 function removeLeadingSpaces(str: string) {
   return str
@@ -24,8 +16,6 @@ function removeLeadingSpaces(str: string) {
 }
 
 const Generator: React.FC = () => {
-  const [addons, setAddons] = useState<Addon[]>(addonsFormConfig);
-
   const [githubUsername, setGithubUsername] = useState("");
 
   const [statsMarkdown, setStatsMarkdown] = useState("");
@@ -123,9 +113,6 @@ const Generator: React.FC = () => {
                   )}
                   {generator.type === "social" && (
                     <SocialForm setMarkdown={setSocialMarkdown} />
-                  )}
-                  {generator.type === "addons" && (
-                    <AddonsForm addons={addons} setAddons={setAddons} />
                   )}
                   {generator.type === "supports" && (
                     <SupportForm setMarkdown={setSupportMarkdown} />

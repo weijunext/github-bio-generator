@@ -2,7 +2,7 @@
 type Generator = {
   title: string;
   subTitle: string;
-  type: "account" | "profile" | "skills" | "social" | "addons" | "supports";
+  type: "account" | "profile" | "skills" | "social" | "supports";
 };
 
 export const generators: Generator[] = [
@@ -25,11 +25,6 @@ export const generators: Generator[] = [
     title: "Social Links",
     subTitle: "Add some social media links",
     type: "social",
-  },
-  {
-    title: "Add-ons",
-    subTitle: "",
-    type: "addons",
   },
   {
     title: "Supports",
