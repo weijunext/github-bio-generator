@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
@@ -11,12 +10,19 @@ import {
 } from "@/components/ui/sheet";
 import "@/styles/preview.modules.css";
 import { Parser } from "html-to-react";
+import { CopyIcon } from "lucide-react";
+import { toast } from "sonner";
 
 export const PreviewSheet: React.FC<{
   generateBio: () => void;
   githubBio: string;
 }> = ({ generateBio, githubBio }) => {
   const htmlParser = new (Parser as any)();
+
+  const copyCode = () => {
+    navigator.clipboard.writeText(githubBio);
+    toast("✂️ Copied!");
+  };
 
   return (
     <Sheet>
@@ -29,7 +35,7 @@ export const PreviewSheet: React.FC<{
           Generate Bio
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="sm:max-w-lg">
         <SheetHeader>
           <SheetTitle>Preview</SheetTitle>
           <SheetDescription>
@@ -40,11 +46,9 @@ export const PreviewSheet: React.FC<{
           {htmlParser.parse(githubBio)}
         </div>
         <SheetFooter className="border-t">
-          <SheetClose asChild>
-            <Button type="submit" className="mt-2">
-              Copy code
-            </Button>
-          </SheetClose>
+          <Button type="submit" className="mt-2" onClick={copyCode}>
+            <CopyIcon className="h-4 w-4 mr-2" /> Copy code
+          </Button>
         </SheetFooter>
       </SheetContent>
     </Sheet>
