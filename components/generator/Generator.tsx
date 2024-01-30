@@ -1,5 +1,6 @@
 "use client";
 import AddonsForm from "@/components/generator/AddonsForm";
+import { PreviewSheet } from "@/components/generator/PreviewSheet";
 import ProfileForm from "@/components/generator/ProfileForm";
 import SkillsForm from "@/components/generator/SkillsForm";
 import SocialForm from "@/components/generator/SocialForm";
@@ -13,6 +14,13 @@ type Addon = {
   label: string;
   checked: boolean;
 };
+
+function removeLeadingSpaces(str: string) {
+  return str
+    .split("\n")
+    .map((line) => line.trimStart())
+    .join("\n");
+}
 
 const Generator: React.FC = () => {
   const [addons, setAddons] = useState<Addon[]>(addonsFormConfig);
@@ -33,29 +41,30 @@ const Generator: React.FC = () => {
     if (skillsMarkdown) {
       markdownBio += `
         <h2>🛠 Skills</h2>
-        <p>
-          ${skillsMarkdown}
-        </p>
-      `;
+          <p>
+            ${skillsMarkdown}
+          </p>
+        `;
     }
 
     if (socialMarkdown) {
       markdownBio += `
-<h2>📪 Contact me</h2>
-<p>
-  ${socialMarkdown}
-</p>
-      `;
+        <h2>📪 Contact me</h2>
+        <p>
+          ${socialMarkdown}
+        </p>
+        `;
     }
 
     if (supportMarkdown) {
       markdownBio += `
         <h2>☕️ Support Me</h2>
         <p>${supportMarkdown}</p>
-      `;
+        `;
     }
 
-    console.log(markdownBio);
+    const cleanedMarkdownBio = removeLeadingSpaces(markdownBio);
+    console.log(cleanedMarkdownBio);
     // 这里可以将 markdownBio 显示在 UI 上或进行其他处理
   };
 
@@ -107,14 +116,15 @@ const Generator: React.FC = () => {
         </React.Fragment>
       ))}
       {/* Generator button */}
-      <button
+      {/* <button
         id="generate"
         type="button"
         className="flex select-none mx-auto items-center gap-3 rounded-lg bg-amber-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold text-white shadow-md shadow-amber-500/20 transition-all hover:shadow-lg hover:shadow-amber-500/50 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         onClick={generateBio}
       >
         Generate Bio
-      </button>
+      </button> */}
+      <PreviewSheet generateBio={generateBio} />
     </div>
   );
 };
