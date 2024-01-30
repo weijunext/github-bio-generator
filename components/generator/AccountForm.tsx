@@ -97,6 +97,7 @@ const AccountForm: React.FC<IProps> = ({
             <a
               href={`https://github.com/${process.env.NEXT_PUBLIC_EXAMPLE_GITHUB_USERNAME}`}
               target="_blank"
+              rel="noopener norefferer nofollow"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
