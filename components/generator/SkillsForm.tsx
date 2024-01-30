@@ -74,7 +74,7 @@ const SkillsForm: React.FC<IProps> = ({
     <>
       {filteredCategories.map((key) => (
         <div key={key} className="">
-          <div className="mb-1 text-sm font-medium text-gray-700">
+          <div className="mb-1 text-sm font-medium text-gray-700 dark:text-white">
             {categorizedSkills[key].title}
           </div>
           <div className="flex flex-row flex-wrap text-gray-700">
@@ -84,7 +84,7 @@ const SkillsForm: React.FC<IProps> = ({
               //   skill.toLowerCase().includes(search.toLowerCase())
               // )
               categorizedSkills[key].skills.map((skill: string) => (
-                <div key={skill} className={skill}>
+                <div key={skill}>
                   <input
                     type="checkbox"
                     id={skill}
@@ -114,7 +114,7 @@ const SkillsForm: React.FC<IProps> = ({
       <div className="col-span-6 sm:col-span-3">
         <Label
           htmlFor="Github URL"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-white"
         >
           Show Stats?
         </Label>

@@ -42,7 +42,7 @@ const ProfileForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
         <div key={index} className="col-span-6 sm:col-span-3">
           <label
             htmlFor={field.name}
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-white"
           >
             {field.label}
           </label>
@@ -54,6 +54,7 @@ const ProfileForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
             required={field.required}
             placeholder={field.placeholder}
             onChange={handleInputChange}
+            className="dark:bg-gray-700 dark:border-slate-800 dark:placeholder-gray-400 dark:text-white"
           />
         </div>
       ))}

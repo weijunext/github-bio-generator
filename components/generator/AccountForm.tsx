@@ -58,7 +58,7 @@ const AccountForm: React.FC<IProps> = ({
       <div className="col-span-6 sm:col-span-3">
         <Label
           htmlFor="Github URL"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-white"
         >
           Github URL
         </Label>
@@ -67,14 +67,15 @@ const AccountForm: React.FC<IProps> = ({
           name="github"
           id="github"
           value={githubUsername}
-          placeholder={`Enter your GitHub homepage URL or username. eg: ${process.env.NEXT_PUBLIC_EXAMPLE_ACCOUNT}`}
+          className="dark:bg-gray-700 dark:border-slate-800 dark:placeholder-gray-400 dark:text-white"
+          placeholder={`Enter your GitHub homepage URL or username. eg: ${process.env.NEXT_PUBLIC_EXAMPLE_GITHUB_USERNAME}`}
           onChange={handleInputChange}
         />
       </div>
       <div className="col-span-6 sm:col-span-3">
         <Label
           htmlFor="Github URL"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-white"
         >
           Show Stats?
         </Label>
