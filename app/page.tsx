@@ -25,18 +25,6 @@ export default function Home() {
           Easily create an awesome Github profile to showcase your technical
           skills and project achievements.{" "}
         </p>
-        <p className="text-sm tracking-tight text-slate-500">
-          The idea and UI design are derived from{" "}
-          <a
-            href="https://github.com/wuyasong/github-profile-generator"
-            target="_blank"
-            rel="noopener norefferer nofollow"
-            className="underline"
-          >
-            github-profile-generator
-          </a>
-          .
-        </p>
       </div>
       <Generator />
       <Introduction />
