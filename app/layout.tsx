@@ -10,7 +10,6 @@ import "@/styles/globals.css";
 import "@/styles/loading.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Inter as FontSans } from "next/font/google";
-import { Toaster } from "react-hot-toast";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -53,7 +52,6 @@ export default async function RootLayout({
             <Footer />
           </div>
           <Analytics />
-          <Toaster />
           <TailwindIndicator />
         </ThemeProvider>
         {process.env.NODE_ENV === "development" ? (
