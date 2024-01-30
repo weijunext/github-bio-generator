@@ -28,7 +28,7 @@ const SupportForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
         if (supportData[key]) {
           return `
             <p>
-              <a href="${supportData[key]}">
+              <a href="${supportData[key]}" target="_blank">
                 <img src="${support.icon}" width="160" alt="${key}" />
               </a>
             </p>

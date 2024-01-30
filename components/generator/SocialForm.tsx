@@ -41,7 +41,7 @@ const SocialForm: React.FC<{ setMarkdown: (markdown: string) => void }> = ({
           const info = socialFormConfig.find(
             (i) => i.name === key
           ) as SocialInfo;
-          return `<a target="_blank" href="${socialInputs[key]}" style="display: inline-block;">
+          return `<a target="_blank" href="${socialInputs[key]}" target="_blank" style="display: inline-block;">
               <img src="${info.shields}" alt="${info.name}" />
             </a>
             `;
