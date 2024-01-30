@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🌍 *[English](README.md) ∙ [简体中文](README-zh.md)*
 
-## Getting Started
 
-First, run the development server:
+# [Github Bio Generator](https://www.githubbio.com/)
+
+Easily create an awesome Github profile to showcase your technical skills and project achievements.
+
+[![Github Bio Generator](./public/og.png)](https://www.githubbio.com/)
+
+## Tech Stack 
+
+Github Bio Generator is built on the following stack:
+
+- Next.js – Frontend
+- TailwindCSS – Styles
+- Shadcn – UI
+- Google Analytics - Analytics([How to use?](https://weijunext.com/article/979b9033-188c-4d88-bfff-6cf74d28420d))
+- Vercel - Hosting
+- Github Stats - [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) 
+
+
+## Running Locally
+
+After cloning the repo, you need to copy the `.env.example` file to create a `.env` file and fill in the required fields.
+
+Then, run the application in the command line and it will be available at `http://localhost:3000`.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## One-Click Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/weijunext/github-bio-generator&project-name=&repository-name=github-bio-generator&demo-title=GithubBioGenerator&demo-description=Generate%20the%20Github%20bio%20in%20seconds.&demo-url=https://githubbio.com&demo-image=https://githubbio.com/og.png)
 
-## Learn More
+## About Me
+I am a **Front-End Engineer**, **Full-Stack Practitioner**, and advocate of **AI adventism**.
 
-To learn more about Next.js, take a look at the following resources:
+[My Blog](https://weijunext.com)  
+[Github](https://github.com/weijunext)  
+[Twitter / X](https://twitter.com/weijunext)  
+[Medium](https://medium.com/@weijunext)  
+[掘金](https://juejin.cn/user/26044008768029)  
+[知乎](https://www.zhihu.com/people/mo-mo-mo-89-12-11)  
+[微信交流群](https://weijunext.com/make-a-friend)  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If this project is helpful to you, star the repo or buy be a coffee, thank you.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<a href="https://www.buymeacoffee.com/weijunext" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
