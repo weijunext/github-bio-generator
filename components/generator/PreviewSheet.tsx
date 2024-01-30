@@ -28,8 +28,7 @@ export const PreviewSheet: React.FC<{
     <Sheet>
       <SheetTrigger asChild>
         <Button
-          variant="outline"
-          className="flex mx-auto items-center select-none gap-3 rounded-lg bg-amber-500 mt-3 py-3 px-6 text-center align-middle font-sans text-xs font-bold text-white shadow-md shadow-amber-500/20 transition-all hover:shadow-lg hover:shadow-amber-500/50 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          className="flex select-none mx-auto items-center gap-3 rounded-lg bg-amber-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold text-white shadow-md shadow-amber-500/20 transition-all hover:shadow-lg hover:shadow-amber-500/50 hover:bg-amber-500 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           onClick={generateBio}
         >
           Generate Bio
