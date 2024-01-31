@@ -25,6 +25,13 @@ const baseSiteConfig = {
     twitter: "https://twitter.com/weijunext",
     github: "https://github.com/weijunext/github-bio",
   },
+  footerProduct: [
+    { url: 'https://weijunext.com/', name: 'J实验室' },
+    { url: 'https://githubbio.com', name: 'Github Bio Generator' },
+    { url: 'https://smartexcel.cc/', name: 'Smart Excel' },
+    { url: 'https://starter.weijunext.com/', name: 'Next.js Starter' },
+    { url: 'https://nextjs.weijunext.com/', name: 'Next.js Practice' },
+  ]
 }
 
 export const siteConfig: SiteConfig = {
