@@ -10,7 +10,7 @@ export default function Introduction() {
           <div className="flex flex-col md:flex-row w-full items-center gap-x-8 gap-y-8">
             <div className="flex flex-col w-full md:w-1/2 items-center md:items-start gap-y-4 icon-translate">
               <h2 className="text-2xl font-bold leading-tight mb-0">
-                Show off your skills 🛠️
+                Show your skills 🛠️
               </h2>
               <p className="text-lg text-center md:text-left mb-0">
                 Showcasing technical skills and project achievements by
@@ -452,7 +452,7 @@ export default function Introduction() {
         <article className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-y-8">
           <div className="flex w-full md:w-1/2 flex-col items-center md:items-start gap-y-4 icon-translate">
             <h2 className="text-2xl font-bold leading-tight mb-0">
-              Add some stats📊
+              Pin Github stats📊
             </h2>
             <p className="text-lg text-center md:text-left mb-0">
               Add necessary data displays to your GitHub to attract more
