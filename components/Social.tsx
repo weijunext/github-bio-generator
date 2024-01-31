@@ -1,19 +1,19 @@
 import Link from "next/link";
-import { BsGithub, BsTwitterX } from "react-icons/bs";
+import { BsTwitterX } from "react-icons/bs";
 
 import { SiBuymeacoffee } from "react-icons/si";
 
 const Social = () => {
   return (
     <div className="mx-auto flex flex-row items-center">
-      <Link
+      {/* <Link
         href="https://github.com/weijunext/github-bio"
         target="_blank"
         rel="noopener norefferer nofollow"
         className="mx-3 flex max-w-[24px] flex-col items-center justify-center"
       >
         <BsGithub className="text-lg" />
-      </Link>
+      </Link> */}
       <Link
         href="https://twitter.com/weijunext"
         target="_blank"
