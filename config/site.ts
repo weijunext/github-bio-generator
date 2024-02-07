@@ -22,8 +22,13 @@ const baseSiteConfig = {
     apple: "/apple-touch-icon.png",
   },
   links: {
+    email: "mailto:weijunext@gmail.com",
     twitter: "https://twitter.com/weijunext",
-    github: "https://github.com/weijunext/github-bio",
+    github: "https://github.com/weijunext/",
+    repo: "https://github.com/weijunext/github-bio-generator",
+    buyMeCoffee: "https://www.buymeacoffee.com/weijunext",
+    juejin: "https://juejin.cn/user/26044008768029",
+    weChat: "https://weijunext.com/make-a-friend",
   },
   footerProduct: [
     { url: 'https://weijunext.com/', name: 'J实验室' },
